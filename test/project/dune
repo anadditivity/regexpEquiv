@@ -1,0 +1,4 @@
+(test
+ (name regexp_equiv_test)
+ (libraries ounit2 ounittodo qcheck-ounit regex project)
+  (preprocess (pps ppx_deriving.std)))

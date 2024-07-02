@@ -1,0 +1,14 @@
+Funktsioonis norm on Concat ja Choice juhud kõik ikkagi olulised. Mõistlik oleks olnud implementeerida eraldi funktsioonid, mis täpselt realiseerivad neid ringiga korrutamise ja liitmise operaatoreid. Choice-is järjestuseks oleks saanud kasutada Re.compare funktsiooni, mis annab sobiva järjestuse ja tegelikult täpselt selle, mida artiklis on tekstiliselt kirjeldatud.
+
+Funktsioon derive sellisel kujul ei garanteeri normaalkujul tulemust. Sellise laisa lahenduse jaoks oleks pidanud norm-i rakendama derive-i tagastatud avaldisele, mitte selle argumendile. Alternatiiv oleks olnud implementeerida uus derive, nagu artiklis antud, kasutades neid ringiga korrutamise ja liitmise operaatoreid.
+
+Kaks ülalolevat aspekti tõenäoliselt on põhjuseks, miks kontroll teatud regexite korral ei termineeru. Kui normaalkuju pole täiesti õigesti arvutatud, siis järjest tuletisi võttes võib saada lõputult palju ja lõputult suuri regexeid. Need normaalkuju reeglid garanteerivad, et neid oleks lõplik arv.
+
+Sisalduvuse kontrolli juures on osa intuitsioonist õige, aga ühisosa asemel saab seda teha ühendiga (mille jaoks regexitel ongi Choice):
+let subset r s = equiv (Choice (r, s)) s
+
+Selle taga on hulgateooria fakt, et R on S-i alamhulk parajasti siis kui R-i ja S-i ühend on S (teise sõnaga, R-is pole mitte ühtegi elementi, mis S-iga ühendisse midagi juurde annaks).
+
+
+
+Kiidan teema valikut: see oli üks keerulisematest ja huvitavamatest, mida valiti.
